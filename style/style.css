@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;600&family=Lato&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;900&family=Lato&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@800&display=swap');
 
 * {
   margin: 0;
@@ -13,14 +14,14 @@ body {
 }
 
 .mobile-nav {
-  height: 100px;
+  height: 150px;
   position: relative;
 }
 
 .mobile-nav::before {
   content: ' ';
   width: 100%;
-  height: 100px;
+  height: 150px;
   opacity: 0.4;
   position: absolute;
   top: 0;
@@ -36,28 +37,59 @@ body {
   margin: 10px;
 }
 
+.desktop-nav {
+  display: none;
+}
+
+.open {
+  display: block;
+}
+
+.desktop-nav ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+#campaign {
+  padding: 15px;
+  width: fit-content;
+  border: 3px solid #e0612f;
+  color: #3798d8;
+}
+
+.desktop-nav li {
+  margin: 10px 0;
+  list-style: none;
+}
+
+#aboutlink {
+  color: #e0612f;
+  font-weight: bold;
+}
+
 .home-section {
   display: block;
   padding-bottom: 50px;
 }
 
 .home-section h4 {
-  color: #3798d8;
-  margin-top: 10px;
-  font-size: 1.2rem;
+  color: #e0612f;
+  font-size: 1.4rem;
 }
 
 .h1-div {
-  background-image: url(../images/john-schaidler-9V3Q2W_mRLE-unsplash.jpg);
+  background-image: url(../images/tarik-haiga-sqCzbgCvDN0-unsplash.jpg);
+  background-position: bottom;
   -webkit-background-clip: text;
   color: transparent;
 }
 
 .h1-div h1 {
-  color: transparent;
   font-size: 2.6rem;
-  font-weight: 700;
-  margin: 20px 0;
+  font-weight: 900;
+  margin: 10px 0;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .home-p1 {
@@ -65,17 +97,23 @@ body {
   padding: 15px;
   margin: 20px 0;
   font-size: 13px;
+  color: grey;
   letter-spacing: 0.03rem;
   line-height: 20px;
 }
 
+.home-p2 {
+  font-size: 0.8rem;
+}
+
 .home-section h2 {
   margin: 10px 0;
-  font-weight: 700;
+  font-family: 'Montserrat', sans-serif;
+  color: rgb(71, 70, 70);
 }
 
 .main-program {
-  padding: 10px;
+  padding: 5%;
   width: 100vw;
   position: relative;
   left: -10px;
@@ -92,19 +130,19 @@ body {
 }
 
 .card {
-  padding: 10px;
+  padding: 10px 0;
   margin: 10px 0;
   background: rgba(160, 155, 155, 0.35);
   display: flex;
   align-items: center;
   text-align: left;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 
 .card span {
-  color: lightskyblue;
+  color: #fa6a31;
   font-weight: 600;
-  width: 80px;
+  width: 70px;
 }
 
 .card p {
@@ -116,7 +154,7 @@ body {
 
 .main-program button {
   padding: 30px 40px;
-  background: lightskyblue;
+  background: #f14e0e;
   color: white;
   font-size: 1rem;
   margin: 30px 0;
@@ -165,7 +203,7 @@ body {
 
 .role {
   font-style: italic;
-  color: rgb(65, 116, 148);
+  color: #e0612f;
 }
 
 #hr2 {

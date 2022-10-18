@@ -1,5 +1,3 @@
-'use strict';
-
 // Program holder
 
 const programContainer = [
