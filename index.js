@@ -116,8 +116,6 @@ speakers.map((speakers) => {
   const image2 = document.createElement('img');
   image2.setAttribute('id', 'two');
   image2.setAttribute('src', speakers.image[1].url);
-  profile.append(image1, image2);
-  speaker.appendChild(profile);
   const info = document.createElement('div');
   info.className = 'info';
   const name = document.createElement('h3');
@@ -130,7 +128,8 @@ speakers.map((speakers) => {
   const bio = document.createElement('p');
   bio.className = 'bio';
   bio.innerHTML = speakers.bio;
+  profile.append(image1, image2);
   info.append(name, role, hr, bio);
-  speaker.appendChild(info);
+  speaker.append(profile, info);
   speakerHolder.appendChild(speaker);
 });

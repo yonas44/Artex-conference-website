@@ -6,19 +6,24 @@
   padding: 0;
   box-sizing: border-box;
   font-family: 'Lato', sans-serif;
+  scroll-behavior: smooth;
 }
 
 body {
   padding: 10px;
-  background: rgb(247, 243, 243);
+  background-image: url(../images/Icons/background\ big2.png);
+  background-repeat: no-repeat;
+  background-position: top;
 }
 
-.mobile-nav {
+/* Mobile header-section */
+
+header {
   height: 150px;
   position: relative;
 }
 
-.mobile-nav::before {
+header::before {
   content: ' ';
   width: 100%;
   height: 150px;
@@ -30,6 +35,23 @@ body {
   background-position: center;
 }
 
+.icon-holder {
+  display: none;
+  padding: 0 12.5%;
+  height: 30px;
+  width: 100vw;
+  position: fixed;
+  left: 0;
+  top: 0;
+  background: rgb(68, 64, 64);
+  z-index: 4;
+}
+
+.icon-holder img {
+  width: 20px;
+  height: 20px;
+}
+
 .mobile-nav img {
   position: relative;
   width: 25px;
@@ -39,34 +61,61 @@ body {
 
 .desktop-nav {
   display: none;
+  z-index: 4;
 }
 
 .open {
   display: block;
 }
 
+.desktop-nav img {
+  width: 100px;
+  cursor: pointer;
+}
+
 .desktop-nav ul {
+  width: 65%;
   display: flex;
-  flex-direction: column;
   justify-content: space-between;
+  align-items: center;
 }
 
 #campaign {
   padding: 15px;
   width: fit-content;
-  border: 3px solid #e0612f;
-  color: #3798d8;
+  border: 5px solid #e0612f;
+  color: #f14e0e;
+}
+
+#campaign:hover {
+  color: white;
 }
 
 .desktop-nav li {
   margin: 10px 0;
+  padding: 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
   list-style: none;
 }
 
+.desktop-nav li:hover {
+  scale: 1.2;
+  background: #f14e0e;
+  color: white;
+}
+
 #aboutlink {
-  color: #e0612f;
+  color: #f14e0e;
   font-weight: bold;
 }
+
+#aboutlink:hover {
+  color: white;
+}
+
+/* Mobile home-section */
 
 .home-section {
   display: block;
@@ -74,7 +123,7 @@ body {
 }
 
 .home-section h4 {
-  color: #e0612f;
+  color: #be400e;
   font-size: 1.4rem;
 }
 
@@ -97,7 +146,6 @@ body {
   padding: 15px;
   margin: 20px 0;
   font-size: 13px;
-  color: grey;
   letter-spacing: 0.03rem;
   line-height: 20px;
 }
@@ -111,6 +159,8 @@ body {
   font-family: 'Montserrat', sans-serif;
   color: rgb(71, 70, 70);
 }
+
+/* Mobile program-section */
 
 .main-program {
   padding: 5%;
@@ -136,7 +186,9 @@ body {
   display: flex;
   align-items: center;
   text-align: left;
+  transition: all 0.5s;
   justify-content: space-around;
+  cursor: pointer;
 }
 
 .card span {
@@ -152,6 +204,12 @@ body {
   letter-spacing: 0.03rem;
 }
 
+.main-program a {
+  display: none;
+  margin: 40px 0;
+  color: white;
+}
+
 .main-program button {
   padding: 30px 40px;
   background: #f14e0e;
@@ -160,6 +218,8 @@ body {
   margin: 30px 0;
   border: none;
 }
+
+/* Mobile speakers-section */
 
 .speakers {
   padding: 40px 5px;
@@ -203,7 +263,7 @@ body {
 
 .role {
   font-style: italic;
-  color: #e0612f;
+  color: #f14e0e;
 }
 
 #hr2 {
@@ -213,4 +273,233 @@ body {
 
 .bio {
   font-size: 0.8rem;
+}
+
+.partner {
+  display: none;
+}
+
+footer {
+  display: none;
+}
+
+@media screen and (min-width: 768px) {
+  body {
+    width: 75%;
+    margin: 0 auto;
+  }
+
+  /* Desktop Header-section */
+
+  header {
+    height: 265px;
+    width: 100%;
+  }
+
+  header::before {
+    height: 300px;
+  }
+
+  .icon-holder {
+    display: flex;
+    color: white;
+    gap: 20px;
+    justify-content: right;
+    align-items: center;
+  }
+
+  .icon-holder h4 {
+    font-size: 0.9rem;
+  }
+
+  .mobile-nav {
+    display: none;
+  }
+
+  .desktop-nav {
+    display: flex;
+    justify-content: space-between;
+    position: fixed;
+    padding: 0.3% 12.5%;
+    top: 30px;
+    width: 100vw;
+    left: 0;
+    background: white;
+  }
+
+  /* Desktop Home-section */
+
+  .home-section {
+    margin: 0 auto;
+    padding-bottom: 100px;
+  }
+
+  .home-section h4 {
+    letter-spacing: 0.04rem;
+    font-size: 2.2rem;
+    font-weight: 300;
+  }
+
+  .h1-div h1 {
+    font-size: 4.6rem;
+    width: 70%;
+  }
+
+  .home-p1 {
+    width: 60%;
+  }
+
+  .home-section h2 {
+    font-size: 2rem;
+  }
+
+  .home-p2 {
+    font-size: 1.2rem;
+  }
+
+  /* Desktop Program-section */
+
+  .main-program {
+    padding: 5% 20%;
+    left: -20%;
+  }
+
+  .main-program h3 {
+    font-size: 2.2rem;
+  }
+
+  .program-holder {
+    gap: 8px;
+    display: flex;
+    margin: 0 auto;
+  }
+
+  .card {
+    flex-direction: column;
+    text-align: center;
+    padding: 20px;
+    gap: 10px;
+  }
+
+  .card:hover {
+    outline: 5px solid white;
+    background: rgba(160, 155, 155, 0.8);
+    scale: 1.2;
+  }
+
+  .card img {
+    width: 70px;
+  }
+
+  .card span {
+    width: inherit;
+    font-size: 1.5rem;
+  }
+
+  .card p {
+    width: 100%;
+    font-size: 0.9rem;
+  }
+
+  .main-program a {
+    display: block;
+  }
+
+  .main-program button {
+    display: none;
+  }
+
+  /* Desktop Speakers-section */
+
+  .speakers {
+    padding: 60px;
+  }
+
+  .speakers-holder {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+
+  .speakers h3 {
+    font-size: 2rem;
+  }
+
+  .speaker {
+    width: 48%;
+  }
+
+  .profile {
+    width: 220px;
+    height: 220px;
+  }
+
+  #one {
+    width: 80px;
+  }
+
+  #two {
+    width: 200px;
+  }
+
+  .bio {
+    font-size: 1rem;
+    line-height: 25px;
+  }
+
+  /* Desktop footer-section */
+
+  .partner {
+    display: block;
+    text-align: center;
+    padding: 50px 20px;
+    color: grey;
+    width: 100vw;
+    position: relative;
+    left: -19.25%;
+    background: rgb(65, 63, 63);
+  }
+
+  .partner hr {
+    margin: 30px auto;
+  }
+
+  .partner h3 {
+    font-size: 2rem;
+  }
+
+  .partner-holder {
+    margin: 0 auto;
+    width: 60%;
+    height: 120px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+  }
+
+  .partner-holder img {
+    width: 150px;
+  }
+
+  footer {
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .footer-logo {
+    width: 150px;
+  }
+
+  #footer-p {
+    padding: 0 100px;
+    line-height: 30px;
+    font-size: 1rem;
+  }
+
+  #footer-p span {
+    font-weight: bold;
+  }
 }
