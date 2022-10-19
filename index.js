@@ -43,6 +43,7 @@ programContainer.map((program) => {
   text.innerHTML = program.text;
   card.appendChild(text);
   programHolder.appendChild(card);
+  return '';
 });
 
 // Speaker holder
@@ -104,59 +105,16 @@ const speakers = [
   },
 ];
 
-let filteredSpeakers, index;
+let filteredSpeakers;
+let index;
 
 const speakerBtn = document.getElementById('speaker-btn');
 const buttonText = document.getElementById('button-text');
 const arrowIcon = document.getElementById('arrow-icon');
 
-window.addEventListener('resize', (value) => {
-  let size = value.target.window.innerWidth;
-  if (size <= 768 && buttonText.innerHTML === 'MORE') {
-    index = 2;
-    deleteChild();
-    displaySpeaker();
-  } else {
-    index = 6;
-    deleteChild();
-    displaySpeaker();
-  }
-});
-
-if (window.innerWidth <= 768) index = 2;
-else index = 6;
-displaySpeaker();
-
-function deleteChild() {
-  const speakerHolder = document.querySelector('.speakers-holder');
-  let child = speakerHolder.lastElementChild;
-  while (child) {
-    speakerHolder.removeChild(child);
-    child = speakerHolder.lastElementChild;
-  }
-}
-
 function filterSpeaker() {
   return speakers.filter((value, i) => i < index);
 }
-
-speakerBtn.addEventListener('click', () => {
-  if (buttonText.innerHTML === 'MORE') {
-    index = 6;
-    deleteChild();
-    buttonText.innerHTML = 'LESS';
-    arrowIcon.style.rotate = '180deg';
-    displaySpeaker();
-    return;
-  } else {
-    index = 2;
-    deleteChild();
-    buttonText.innerHTML = 'MORE';
-    arrowIcon.style.rotate = '0deg';
-    displaySpeaker();
-    return;
-  }
-});
 
 function displaySpeaker() {
   const speakerHolder = document.querySelector('.speakers-holder');
@@ -188,8 +146,51 @@ function displaySpeaker() {
     info.append(name, role, hr, bio);
     speaker.append(profile, info);
     speakerHolder.appendChild(speaker);
+    return '';
   });
 }
+
+function deleteChild() {
+  const speakerHolder = document.querySelector('.speakers-holder');
+  let child = speakerHolder.lastElementChild;
+  while (child) {
+    speakerHolder.removeChild(child);
+    child = speakerHolder.lastElementChild;
+  }
+}
+
+window.addEventListener('resize', (value) => {
+  const size = value.target.window.innerWidth;
+  if (size <= 768 && buttonText.innerHTML === 'MORE') {
+    index = 2;
+    deleteChild();
+    displaySpeaker();
+  } else {
+    index = 6;
+    deleteChild();
+    displaySpeaker();
+  }
+});
+
+if (window.innerWidth <= 768) index = 2;
+else index = 6;
+displaySpeaker();
+
+speakerBtn.addEventListener('click', () => {
+  if (buttonText.innerHTML === 'MORE') {
+    index = 6;
+    deleteChild();
+    buttonText.innerHTML = 'LESS';
+    arrowIcon.style.rotate = '180deg';
+    displaySpeaker();
+  } else {
+    index = 2;
+    deleteChild();
+    buttonText.innerHTML = 'MORE';
+    arrowIcon.style.rotate = '0deg';
+    displaySpeaker();
+  }
+});
 
 // Mobile navigation menu
 
