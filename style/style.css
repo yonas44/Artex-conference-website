@@ -116,7 +116,6 @@ header::before {
 
 .desktop-nav li {
   margin: 10px 0;
-  padding: 15px;
   cursor: pointer;
   transition: 0.3s;
   list-style: none;

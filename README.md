@@ -23,6 +23,12 @@
 
 [Live Demo Link](https://yonas44.github.io/Microverse_capstone-1/)
 
+### Video Description
+
+- Here you can watch a
+  [Video](https://www.loom.com/share/b0fb6fdb367c4977b428e725b08dc5c2) of me
+  describing my project😊.
+
 ## Authors
 
 👤 **Author1**
