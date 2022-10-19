@@ -104,32 +104,107 @@ const speakers = [
   },
 ];
 
-const speakerHolder = document.querySelector('.speakers-holder');
-speakers.map((speakers) => {
-  const speaker = document.createElement('div');
-  speaker.className = 'speaker';
-  const profile = document.createElement('div');
-  profile.className = 'profile';
-  const image1 = document.createElement('img');
-  image1.setAttribute('id', 'one');
-  image1.setAttribute('src', speakers.image[0].url);
-  const image2 = document.createElement('img');
-  image2.setAttribute('id', 'two');
-  image2.setAttribute('src', speakers.image[1].url);
-  const info = document.createElement('div');
-  info.className = 'info';
-  const name = document.createElement('h3');
-  name.innerHTML = speakers.name;
-  const role = document.createElement('p');
-  role.className = 'role';
-  role.innerHTML = speakers.role;
-  const hr = document.createElement('hr');
-  hr.id = 'hr2';
-  const bio = document.createElement('p');
-  bio.className = 'bio';
-  bio.innerHTML = speakers.bio;
-  profile.append(image1, image2);
-  info.append(name, role, hr, bio);
-  speaker.append(profile, info);
-  speakerHolder.appendChild(speaker);
+let filteredSpeakers, index;
+
+const speakerBtn = document.getElementById('speaker-btn');
+const buttonText = document.getElementById('button-text');
+const arrowIcon = document.getElementById('arrow-icon');
+
+window.addEventListener('resize', (value) => {
+  let size = value.target.window.innerWidth;
+  if (size <= 768 && buttonText.innerHTML === 'MORE') {
+    index = 2;
+    deleteChild();
+    displaySpeaker();
+  } else {
+    index = 6;
+    deleteChild();
+    displaySpeaker();
+  }
+});
+
+if (window.innerWidth <= 768) index = 2;
+else index = 6;
+displaySpeaker();
+
+function deleteChild() {
+  const speakerHolder = document.querySelector('.speakers-holder');
+  let child = speakerHolder.lastElementChild;
+  while (child) {
+    speakerHolder.removeChild(child);
+    child = speakerHolder.lastElementChild;
+  }
+}
+
+function filterSpeaker() {
+  return speakers.filter((value, i) => i < index);
+}
+
+speakerBtn.addEventListener('click', () => {
+  if (buttonText.innerHTML === 'MORE') {
+    index = 6;
+    deleteChild();
+    buttonText.innerHTML = 'LESS';
+    arrowIcon.style.rotate = '180deg';
+    displaySpeaker();
+    return;
+  } else {
+    index = 2;
+    deleteChild();
+    buttonText.innerHTML = 'MORE';
+    arrowIcon.style.rotate = '0deg';
+    displaySpeaker();
+    return;
+  }
+});
+
+function displaySpeaker() {
+  const speakerHolder = document.querySelector('.speakers-holder');
+  filteredSpeakers = filterSpeaker();
+  filteredSpeakers.map((speakers) => {
+    const speaker = document.createElement('div');
+    speaker.className = 'speaker';
+    const profile = document.createElement('div');
+    profile.className = 'profile';
+    const image1 = document.createElement('img');
+    image1.setAttribute('id', 'one');
+    image1.setAttribute('src', speakers.image[0].url);
+    const image2 = document.createElement('img');
+    image2.setAttribute('id', 'two');
+    image2.setAttribute('src', speakers.image[1].url);
+    const info = document.createElement('div');
+    info.className = 'info';
+    const name = document.createElement('h3');
+    name.innerHTML = speakers.name;
+    const role = document.createElement('p');
+    role.className = 'role';
+    role.innerHTML = speakers.role;
+    const hr = document.createElement('hr');
+    hr.id = 'hr2';
+    const bio = document.createElement('p');
+    bio.className = 'bio';
+    bio.innerHTML = speakers.bio;
+    profile.append(image1, image2);
+    info.append(name, role, hr, bio);
+    speaker.append(profile, info);
+    speakerHolder.appendChild(speaker);
+  });
+}
+
+// Mobile navigation menu
+
+const navMenu = document.getElementById('mobile-menu');
+const closeMenu = document.getElementById('burger-x');
+const desktopNav = document.querySelector('.desktop-nav');
+
+navMenu.addEventListener('click', () => {
+  desktopNav.classList.add('open');
+  navMenu.style.display = 'none';
+  closeMenu.style.display = 'block';
+});
+
+closeMenu.addEventListener('click', () => {
+  desktopNav.classList.remove('open');
+  navMenu.style.display = 'block';
+  closeMenu.style.display = 'none';
 });

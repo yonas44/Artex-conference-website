@@ -54,30 +54,52 @@ header::before {
 
 .mobile-nav img {
   position: relative;
+  cursor: pointer;
   width: 25px;
   height: 25px;
   margin: 10px;
+  z-index: 5;
+}
+
+#burger-x {
+  display: none;
 }
 
 .desktop-nav {
-  display: none;
   z-index: 4;
+  display: none;
 }
 
 .open {
   display: block;
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  top: 0;
+  left: 0;
+  transform: translateY(-100%);
+  animation: fadeIn 0.5s forwards;
+  background: lightgrey;
+  z-index: 4;
+}
+
+@keyframes fadeIn {
+  100% {
+    transform: translateY(0);
+  }
 }
 
 .desktop-nav img {
+  display: none;
   width: 100px;
   cursor: pointer;
 }
 
 .desktop-nav ul {
-  width: 65%;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  width: 65%;
+  flex-direction: column;
+  padding: 100px 50px;
 }
 
 #campaign {
@@ -88,22 +110,33 @@ header::before {
 }
 
 #campaign:hover {
+  background: #f14e0e;
   color: white;
 }
 
 .desktop-nav li {
   margin: 10px 0;
   padding: 15px;
-  border-radius: 5px;
   cursor: pointer;
   transition: 0.3s;
   list-style: none;
 }
 
+header li a {
+  padding: 15px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 1.2rem;
+  color: grey;
+}
+
+header li a:hover {
+  color: white;
+  background: #f14e0e;
+}
+
 .desktop-nav li:hover {
   scale: 1.2;
-  background: #f14e0e;
-  color: white;
 }
 
 #aboutlink {
@@ -119,6 +152,7 @@ header::before {
 
 .home-section {
   display: block;
+  height: 100%;
   padding-bottom: 50px;
 }
 
@@ -144,6 +178,7 @@ header::before {
 .home-p1 {
   border: 2px solid white;
   padding: 15px;
+  background: rgb(247, 244, 244);
   margin: 20px 0;
   font-size: 13px;
   letter-spacing: 0.03rem;
@@ -157,7 +192,7 @@ header::before {
 .home-section h2 {
   margin: 10px 0;
   font-family: 'Montserrat', sans-serif;
-  color: rgb(71, 70, 70);
+  color: rgb(55, 55, 75);
 }
 
 /* Mobile program-section */
@@ -204,7 +239,7 @@ header::before {
   letter-spacing: 0.03rem;
 }
 
-.main-program a {
+#main-a {
   display: none;
   margin: 40px 0;
   color: white;
@@ -275,9 +310,38 @@ header::before {
   font-size: 0.8rem;
 }
 
+#speaker-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  background: transparent;
+  border: solid 1px grey;
+  border-radius: 3.5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: 0.5s;
+  width: 100%;
+  padding: 20px;
+}
+
+#speaker-btn:hover {
+  background: grey;
+  color: white;
+}
+
+.fa-chevron-down {
+  color: #f14e0e;
+  font-weight: bolder;
+}
+
+/* Mobile Partner-section */
+
 .partner {
   display: none;
 }
+
+/* Mobile footer-section */
 
 footer {
   display: none;
@@ -285,14 +349,14 @@ footer {
 
 @media screen and (min-width: 768px) {
   body {
-    width: 75%;
+    padding: 0 12.5%;
     margin: 0 auto;
   }
 
   /* Desktop Header-section */
 
   header {
-    height: 265px;
+    height: 365px;
     width: 100%;
   }
 
@@ -320,16 +384,30 @@ footer {
     display: flex;
     justify-content: space-between;
     position: fixed;
-    padding: 0.3% 12.5%;
+    padding: 0 12.5%;
     top: 30px;
     width: 100vw;
+    height: 100px;
     left: 0;
     background: white;
+  }
+
+  .desktop-nav ul {
+    padding: 0;
+    flex-direction: row;
+    height: 100px;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .desktop-nav img {
+    display: inline;
   }
 
   /* Desktop Home-section */
 
   .home-section {
+    height: 65vh;
     margin: 0 auto;
     padding-bottom: 100px;
   }
@@ -341,27 +419,33 @@ footer {
   }
 
   .h1-div h1 {
-    font-size: 4.6rem;
-    width: 70%;
+    font-size: 5.6rem;
+    width: 90%;
   }
 
   .home-p1 {
     width: 60%;
+    font-size: 16px;
+    line-height: 30px;
+    padding: 35px;
   }
 
   .home-section h2 {
-    font-size: 2rem;
+    margin: 30px 0;
+    font-size: 2.5rem;
   }
 
   .home-p2 {
     font-size: 1.2rem;
+    margin: 20px 0;
   }
 
   /* Desktop Program-section */
 
   .main-program {
     padding: 5% 20%;
-    left: -20%;
+    height: 600px;
+    left: -19%;
   }
 
   .main-program h3 {
@@ -378,12 +462,13 @@ footer {
     flex-direction: column;
     text-align: center;
     padding: 20px;
+    height: 300px;
     gap: 10px;
   }
 
   .card:hover {
     outline: 5px solid white;
-    background: rgba(160, 155, 155, 0.8);
+    background: rgb(112, 111, 111);
     scale: 1.2;
   }
 
@@ -426,7 +511,7 @@ footer {
   }
 
   .speaker {
-    width: 48%;
+    width: 30vw;
   }
 
   .profile {
@@ -444,7 +529,12 @@ footer {
 
   .bio {
     font-size: 1rem;
+    width: 80%;
     line-height: 25px;
+  }
+
+  #speaker-btn {
+    display: none;
   }
 
   /* Desktop footer-section */

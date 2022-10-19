@@ -5,6 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./style/style.css" />
+    <script
+      src="https://kit.fontawesome.com/14f4680366.js"
+      crossorigin="anonymous"
+    ></script>
     <title>Artex</title>
   </head>
   <body>
@@ -17,18 +21,29 @@
         <h4>Logout</h4>
       </div>
       <nav class="mobile-nav">
-        <img src="./images/Icons/Unionburger_icon.png" alt="mobile menu" />
+        <img
+          id="mobile-menu"
+          src="./images/Icons/Unionburger_icon.png"
+          alt="mobile menu"
+        />
+        <img
+          id="burger-x"
+          src="./images/Icons/burger-X.png"
+          alt="mobile menu"
+        />
       </nav>
       <nav class="desktop-nav">
         <a href="#">
           <img src="./images/Icons/logo.png" alt="Artex logo" />
         </a>
         <ul>
-          <li id="aboutlink"><span>About</span></li>
-          <li>Program</li>
-          <li>Join</li>
-          <li>Sponsor</li>
-          <li>News</li>
+          <li>
+            <a id="aboutlink" href="./about.html"><span>About</span></a>
+          </li>
+          <li><a href="">Program</a></li>
+          <li><a href="">Join</a></li>
+          <li><a href=""> Sponsor</a></li>
+          <li><a href=""> News</a></li>
           <li id="campaign">Artex Campaign</li>
         </ul>
       </nav>
@@ -50,13 +65,16 @@
       <h3>Main Program</h3>
       <hr class="hr1" size="1" width="7%" color="#fa6a31" />
       <div class="program-holder"></div>
-      <a href="">SEE THE WHOLE PROGRAM</a>
+      <a id="main-a" href="">SEE THE WHOLE PROGRAM</a>
       <button>Join Artex Global Exhibition 2022</button>
     </section>
     <section class="speakers">
       <h3>Featured Speakers</h3>
       <hr class="hr1" size="1" width="40px" color="#fa6a31" />
       <div class="speakers-holder"></div>
+      <button id="speaker-btn">
+        <span id="button-text">MORE</span><span id="arrow-icon"><i class="fa-solid fa-chevron-down"></span></i>
+      </button>
     </section>
     <section class="partner">
       <h3>Partner</h3>
