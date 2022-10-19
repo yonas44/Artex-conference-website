@@ -21,7 +21,7 @@
 
 ### Deployment
 
-[Live Demo Link]()
+[Live Demo Link](https://yonas44.github.io/Microverse_capstone-1/)
 
 ## Authors
 
@@ -41,10 +41,16 @@ Give a ⭐️ if you like this project!
 
 ## Acknowledgments
 
--I want to thank [Creative_Commons](https://creativecommons.org/licenses/by-nc/4.0/) for allowing me to use their template in designing and building this website.
+-I want to thank [Cindy Shin](https://creativecommons.org/licenses/by-nc/4.0/)
+for allowing me to use their template in designing and building this website.
 
 ## 📝 License
 
 This project is [MIT](./MIT.md) licensed.
 
-_NOTE: we recommend using the [MIT license](https://choosealicense.com/licenses/mit/) - you can set it up quickly by [using templates available on GitHub](https://docs.github.com/en/communities/setting-up-your-project-for-healthy-contributions/adding-a-license-to-a-repository). You can also use [any other license](https://choosealicense.com/licenses/) if you wish._
+_NOTE: we recommend using the
+[MIT license](https://choosealicense.com/licenses/mit/) - you can set it up
+quickly by
+[using templates available on GitHub](https://docs.github.com/en/communities/setting-up-your-project-for-healthy-contributions/adding-a-license-to-a-repository).
+You can also use [any other license](https://choosealicense.com/licenses/) if
+you wish._
