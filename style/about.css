@@ -240,6 +240,12 @@ header li a:hover {
   margin: 15px auto;
   background-size: cover;
   position: relative;
+  transition: 0.5s;
+}
+
+.card:hover {
+  scale: 1.2;
+  color: black;
 }
 
 .card-one {
@@ -260,6 +266,11 @@ header li a:hover {
   width: 100%;
   position: relative;
   opacity: 0.65;
+  transition: 1s;
+}
+
+.blue-div:hover {
+  background: transparent;
 }
 
 .texts {

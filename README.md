@@ -6,18 +6,26 @@
 
 ## Built With
 
-- Major languages : HTML , CSS & JavaScript
+- HTML , CSS & JavaScript
 - Frameworks : none
 
 ## Getting Started
 
-### Prerequisites
+For this project i designed a website with two pages a homepage and an about
+page;
+
+- Homepage: Dispalys the following interfaces;
+  - Date and time of the art exhibition.
+  - Main programs planned for the event.
+  - Featured speakers for the event.
+- About page: Displayss the following interfaces;
+  - Logo for the exhibition creaters.
+  - Events from previous years.
 
 ### Setup
 
-### Install
-
-### Usage
+- Clone the project using this link:
+  https://github.com/yonas44/Microverse_capstone-1
 
 ### Deployment
 
@@ -33,7 +41,7 @@
 
 👤 **Author1**
 
-- GitHub: [@yonas44](https://github.com/yonas44/Microverse_capstone-1)
+- GitHub: [@yonas44](https://github.com/yonas44)
 
 ## 🤝 Contributing
 

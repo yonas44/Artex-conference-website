@@ -57,6 +57,8 @@ const speakers = [
     name: 'GLEN KEANE',
     role: 'Animator for Disney world',
     bio: 'Disney Legend Animator Known for "The Little Mermaid", "Tarzan" & more',
+    travels_from: 'Los Angeles, CA, USA',
+    Speaking_Fee: 'Live Event: Please ContactVirtual Event: $30,000 - $50,000',
   },
   {
     image: [
@@ -66,6 +68,8 @@ const speakers = [
     name: 'SANFORD BIGGERS',
     role: 'Conceptual Artist',
     bio: 'Known for his role in big art festivals and exhibitions.',
+    travels_from: 'Los Angeles, CA, USA',
+    Speaking_Fee: 'Live Event: Please ContactVirtual Event: $30,000 - $50,000',
   },
   {
     image: [
@@ -119,33 +123,36 @@ function filterSpeaker() {
 function displaySpeaker() {
   const speakerHolder = document.querySelector('.speakers-holder');
   filteredSpeakers = filterSpeaker();
-  filteredSpeakers.map((speakers) => {
-    const speaker = document.createElement('div');
-    speaker.className = 'speaker';
+  filteredSpeakers.map((speaker) => {
+    const speakerAdded = document.createElement('div');
+    speakerAdded.className = 'speaker';
+    speakerAdded.setAttribute('val', speakers.indexOf(speaker));
     const profile = document.createElement('div');
     profile.className = 'profile';
     const image1 = document.createElement('img');
     image1.setAttribute('id', 'one');
-    image1.setAttribute('src', speakers.image[0].url);
+    image1.setAttribute('src', speaker.image[0].url);
+    image1.setAttribute('alt', 'background image');
     const image2 = document.createElement('img');
     image2.setAttribute('id', 'two');
-    image2.setAttribute('src', speakers.image[1].url);
+    image2.setAttribute('src', speaker.image[1].url);
+    image2.setAttribute('alt', 'speaker image');
     const info = document.createElement('div');
     info.className = 'info';
     const name = document.createElement('h3');
-    name.innerHTML = speakers.name;
+    name.innerHTML = speaker.name;
     const role = document.createElement('p');
     role.className = 'role';
-    role.innerHTML = speakers.role;
+    role.innerHTML = speaker.role;
     const hr = document.createElement('hr');
     hr.id = 'hr2';
     const bio = document.createElement('p');
     bio.className = 'bio';
-    bio.innerHTML = speakers.bio;
+    bio.innerHTML = speaker.bio;
     profile.append(image1, image2);
     info.append(name, role, hr, bio);
-    speaker.append(profile, info);
-    speakerHolder.appendChild(speaker);
+    speakerAdded.append(profile, info);
+    speakerHolder.appendChild(speakerAdded);
     return '';
   });
 }
@@ -208,4 +215,54 @@ closeMenu.addEventListener('click', () => {
   desktopNav.classList.remove('open');
   navMenu.style.display = 'block';
   closeMenu.style.display = 'none';
+});
+
+// Modal for speakers
+
+const modalWindow = document.querySelector('.modal-window');
+
+function displayModal(index) {
+  modalWindow.style.display = 'flex';
+  const speakerModal = document.querySelector('.modal-parent');
+
+  while (speakerModal.hasChildNodes()) {
+    speakerModal.removeChild(speakerModal.firstChild);
+  }
+
+  const modal = document.createElement('div');
+  modal.className = 'modal';
+  const contentHolder = document.createElement('div');
+  contentHolder.className = 'content-holder';
+  const personImage = document.createElement('img');
+  personImage.setAttribute('src', speakers[index].image[1].url);
+  const personInfo = document.createElement('div');
+  personInfo.className = 'person-info';
+  const name = document.createElement('h2');
+  name.innerHTML = speakers[index].name;
+  const role = document.createElement('p');
+  role.id = 'role';
+  role.innerHTML = speakers[index].role;
+  const travel = document.createElement('span');
+  travel.innerHTML = `Travels From: ${speakers[index].travels_from}`;
+  const speakFee = document.createElement('span');
+  speakFee.innerHTML = `Speaking Fee: ${speakers[index].Speaking_Fee}`;
+  const bio = document.createElement('p');
+  bio.innerHTML = speakers[index].bio;
+  personInfo.append(name, role, travel, speakFee, bio);
+  contentHolder.append(personImage, personInfo);
+  modal.appendChild(contentHolder);
+  speakerModal.appendChild(modal);
+}
+
+const modalClose = document.querySelector('#close-modal');
+modalClose.addEventListener('click', () => {
+  modalWindow.style.display = 'none';
+});
+
+const activeSpeaker = document.querySelectorAll('.speaker');
+activeSpeaker.forEach((person) => {
+  const index = person.getAttribute('val');
+  person.addEventListener('click', () => {
+    displayModal(index);
+  });
 });

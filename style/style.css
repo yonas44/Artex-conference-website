@@ -188,10 +188,41 @@ header li a:hover {
   font-size: 0.8rem;
 }
 
+.date-holder {
+  width: fit-content;
+  position: relative;
+}
+
 .home-section h2 {
   margin: 10px 0;
   font-family: 'Montserrat', sans-serif;
-  color: rgb(55, 55, 75);
+  -webkit-text-stroke: 0.5px red;
+  color: white;
+}
+
+.home-section h2::before {
+  content: attr(data-text);
+  color: black;
+  -webkit-text-stroke: 0 red;
+  border-right: 2px solid black;
+  position: absolute;
+  width: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  animation: animate 4s infinite;
+}
+
+@keyframes animate {
+  0%,
+  10%,
+  100% {
+    width: 0;
+  }
+
+  70%,
+  90% {
+    width: 100%;
+  }
 }
 
 /* Mobile program-section */
@@ -274,6 +305,7 @@ header li a:hover {
 
 .speaker {
   display: grid;
+  cursor: pointer;
   grid-template-columns: 1fr 2fr;
   gap: 20px;
   margin: 50px 0;
@@ -295,6 +327,7 @@ header li a:hover {
   position: absolute;
   bottom: 0;
   width: 100px;
+  transition: 1s;
   right: 0;
 }
 
@@ -302,7 +335,8 @@ header li a:hover {
   text-align: left;
 }
 
-.role {
+.role,
+#role {
   font-style: italic;
   color: #f14e0e;
 }
@@ -351,6 +385,67 @@ header li a:hover {
 
 footer {
   display: none;
+}
+
+/* Modal screen */
+
+.modal-window {
+  position: fixed;
+  top: 0;
+  backdrop-filter: blur(10px);
+  left: 0;
+  padding: 20% 0;
+  display: none;
+  width: 100vw;
+  height: 100vh;
+  flex-direction: column;
+  z-index: 6;
+  transform: translateY(100%);
+  animation: open 1s forwards;
+}
+
+@keyframes open {
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.modal-parent {
+  padding: 50px;
+  border-radius: 10px;
+  margin-bottom: auto;
+  background: rgb(204, 203, 203);
+  justify-content: center;
+  align-items: center;
+}
+
+#close-modal {
+  width: 50px;
+  padding: 10px;
+  margin-top: auto;
+  background: #f14e0e;
+  cursor: pointer;
+  border-radius: 4px;
+  display: block;
+  transition: 0.2s;
+  margin-left: auto;
+}
+
+#close-modal:hover {
+  background: white;
+}
+
+.content-holder {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10%;
+}
+
+.person-info {
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
 }
 
 @media screen and (min-width: 768px) {
@@ -598,5 +693,9 @@ footer {
 
   #footer-p span {
     font-weight: bold;
+  }
+
+  .modal-window {
+    padding: 10% 20%;
   }
 }
