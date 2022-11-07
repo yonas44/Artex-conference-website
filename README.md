@@ -25,11 +25,11 @@ page;
 ### Setup
 
 - Clone the project using this link:
-  https://github.com/yonas44/Microverse_capstone-1
+  https://github.com/yonas44/Artex-conference-website/
 
 ### Deployment
 
-[Live Demo Link](https://yonas44.github.io/Microverse_capstone-1/)
+[Live Demo Link](https://yonas44.github.io/Artex-conference-website/)
 
 ### Video Description
 
