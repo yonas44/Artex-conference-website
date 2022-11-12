@@ -7,7 +7,9 @@
 ## Built With
 
 - HTML , CSS & JavaScript
-- Frameworks : none
+
+![image](./images/artex.png)
+![image](./images/artex-mobile.png)
 
 ## Getting Started
 
