@@ -8,8 +8,12 @@
 
 - HTML , CSS & JavaScript
 
-![image](./images/artex.png)
-![image](./images/artex-mobile.png)
+<p align="center">
+  <img src="./images/artex.png" />
+</p>
+<p align="center">
+  <img src="./images/artex-mobile.png" />
+</p>
 
 ## Getting Started
 
